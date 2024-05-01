@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section style="height: 530px;">
+		<div class="container-fluid">
+			<div class="row mt-4 ">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header fs-4 text-center custom-bg text-white rounded">
+							<p class="fs-4 pt-2">View Orders</p>
+						</div>
+						<div class="card-body">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th scope="col">Order Date</th>
+										<th scope="col">Order ID</th>
+										<th scope="col">Delivery Address</th>
+										<th scope="col">Prodcut Details</th>
+										<th scope="col">Payment Types</th>
+										<th scope="col">Status</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">2023-05-07</th>
+										<td>PROD-ORD-00900</td>
+										<td>Powai, Bamandaya</td>
+										<td>Boat 131</td>
+										<td>COD</td>
+										<td>Order Received</td>
+										<td><select name="" id="">
+											<option value="">--select--</option>
+										</select></td>
+										<td>
+											<a href="#" class="btn btn-success btn-sm">
+											<i class="fa-solid fa-percent"></i> Update</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

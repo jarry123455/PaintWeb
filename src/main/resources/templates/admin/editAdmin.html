@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container mt-5 pb-5">
+		<div class="row mb-5 ">
+			<div class="col-md-6 offset-md-3">
+				<div class="card">
+					<div class="card-header text-center fs-4 mt-3 mb-2 Main text-white">
+						<p class="fs-4">Edit Admin</p>
+						<th:block th:if="${session.succMsg}">
+								<p class="text-success fw-bold">[[${session.succMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+							</th:block>
+							<th:block th:if="${session.errMsg}">
+								<p class="text-danger fw-bold">[[${session.errMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+							</th:block>
+					</div>
+					<div class="card-body mb-4 ">
+							<form action="/admin/updateAdmin" method="post">
+								<input type="hidden" name="id" th:value="${admin.id}" />
+								<div class="mb-3">
+									<input type="text" class="form-control" name="fullName"
+									th:value="${admin.fullName}" placeholder="Full Name" required />
+								</div>
+								<div class="mb-3">
+									<input type="text" class="form-control" name="mobileNumber"
+										th:value="${admin.mobileNumber}" placeholder="Mobile Number" required />
+								</div>
+								<div class="mb-3">							
+									<input type="text" class="form-control" name="email"
+									th:value="${admin.email}" placeholder="Email" required />
+								</div>
+								<div class="mb-3">
+									<input type="text" class="form-control" name="password"
+									th:value="${admin.password}" placeholder="Password" required />
+								</div>
+								<div class="text-center">
+								<button class="btn btn-primary">Update</button>
+							</div>
+							</form>
+							
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+</body>
+</html>

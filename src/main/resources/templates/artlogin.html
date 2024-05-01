@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section style="height: 549px;">
+		<div class="container mt-1 p-1">
+			<div class="row">
+				<div class="col-md-6 p-2">
+					<img src="img/log.avif" alt="" width="100%" height="450px" />
+				</div>
+				<div class="col-md-5 p-5 offset-md-1">
+					<div class="card shadow p-3  bg-body rounded">
+						<div class="card-header custom-bg text-center">
+							<h3 class="text-white pt-1">Artist Login </h3>
+						</div>
+						<div class="card-body">
+
+							<form>
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Email address</label>
+									<input type="email" class="form-control" id="exampleInputEmail1"
+										aria-describedby="emailHelp">
+									<div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="exampleInputPassword1" class="form-label">Password</label>
+									<input type="password" class="form-control" id="exampleInputPassword1">
+								</div>
+
+								<div class="container text-center">
+									<button type="submit" class="btn btn-primary custom-bg">Submit</button>
+									<button type="reset" class="btn btn-primary custom-bg">Reset</button>
+								</div>
+							</form>
+						</div>
+						<div class="card-footer text-center">
+							<a href="" class="text-decoration-none">Forget Password</a><br />
+							Don't have an account? <a href="/artregister" class="text-decoration-none">Create one</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+@charset "ISO-8859-1";
+
+.card.bg-body {
+	background-color: transparent !important;
+}
+
+
+
+
+
+.Main {
+	background-color: #2b0470 !important;
+	padding: 19px 16px;
+}
+
+.Main2 {
+	background-color: #f5e3d4;
+}
+
+.admin .card:hover {
+	background: #e2e2e2;
+	cursor: pointer;
+}
+
+.admin {
+	background: #efefef;
+
+}
+
+.footer {
+	margin-top: auto;
+	margin-top: auto;
+}
+
+.card-sh {
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.cat-div {
+	box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+.custom-bg {
+	background: #2b0470;
+}

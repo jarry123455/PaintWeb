@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section style="height: 545px;">
+		<div class="container-fluid p-5 mt-2">
+			<div class="row mt-4">
+				<div class="col-md-4">
+					<div class="card">
+						<div class="card-header text-center fs-4 custom-bg text-white">
+							<p class="fs-4 pt-2">Add Admin</p>
+							
+							<th:block th:if="${session.succMsg}">
+								<p class="text-success fw-bold">[[${session.succMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+							</th:block>
+							<th:block th:if="${session.errMsg}">
+								<p class="text-danger fw-bold">[[${session.errMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+							</th:block>
+						</div>
+						<div class="card-body mb-4 ">
+							<form action="/loadAdmin" method="post">
+								<div class="mb-3">
+									<input type="text" class="form-control" name="fullName"
+										placeholder="Full Name" required />
+								</div>
+								<div class="mb-3">
+									<input type="text" class="form-control" name="mobileNumber"
+										placeholder="Mobile Number" required />
+								</div>
+								<div class="mb-3">							
+									<input type="text" class="form-control" name="email"
+										placeholder="Email" required />
+								</div>
+								<div class="mb-3">
+									<input type="text" class="form-control" name="password"
+									 placeholder="Password" required />
+								</div>
+								<div class="text-center">
+								<button class="btn btn-primary">Register</button>
+							</div>
+							</form>
+							
+						</div>
+
+					</div>
+
+				</div>
+				
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

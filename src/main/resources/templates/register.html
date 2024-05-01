@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section>
+		<div class="container ">
+			<div class="row">
+				<div class="col-md-6 ">
+					<img src="img/log.avif" alt="" width="100%" height="600px" />
+				</div>
+				<div class="col-md-6 p-5">
+					<div class="card shadow p-0 mb-0 bg-body rounded">
+						<div class="card-header custom-bg text-center">
+							<h3 class="text-white pt-2">Register Here</h3>
+							<th:block th:if="${session.succMsg}">
+								<p class="text-success fw-bold">[[${session.succMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+							</th:block>
+							<th:block th:if="${session.errMsg}">
+								<p class="text-danger fw-bold">[[${session.errMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+							</th:block>
+
+
+						</div>
+						<div class="card-body">
+							<form action="/registerCustomer" method="post" enctype="multipart/form-data">
+								<div class="row">
+									<div class="col">
+										<label class="form-label">First Name</label>
+										<input type="text" name="firstName" class="form-control">
+									</div>
+
+									<div class="col">
+										<label class="form-label">Last Name</label>
+										<input type="text" name="lastName" class="form-control">
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col">
+										<label class="form-label">Email</label>
+										<input type="email" name="email" class="form-control">
+									</div>
+
+									<div class="col">
+										<label class="form-label">Phone Number</label>
+										<input type="text" name="phoneNumber" class="form-control">
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col">
+										<label class="form-label">State</label>
+										<input type="text" name="state" class="form-control">
+									</div>
+
+									<div class="col">
+										<label class="form-label">City</label>
+										<input type="text" name="city" class="form-control">
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col">
+										<label class="form-label">Enter Address</label>
+										<input type="text" name="address" class="form-control">
+									</div>
+									<div class="col">
+										<div class="col">
+											<label class="form-label">Enter Your Role</label>
+											<select name="role" class="form-select">
+												<option >--select--</option>
+												<option value="ROLE_USER">User</option>
+												<option value="ROLE_ADMIN">Admin</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<label class="form-label">Password</label>
+										<input type="text" name="password" class="form-control">
+									</div>
+
+									<div class="col">
+										<label class="form-label">Confirm Password</label>
+										<input type="text" name="confirmPassword" class="form-control">
+									</div>
+								</div>
+
+								<div class="row">
+
+									<div class="col">
+										<label class="form-label">Profile Image</label>
+										<input type="file" name="file" class="form-control">
+									</div>
+									<div class="col">
+										<label class="form-label">Pincode</label>
+										<input type="text" name="pinCode" class="form-control">
+									</div>
+
+								</div>
+
+								<div class="container text-center">
+									<button type="submit" class="btn btn-primary custom-bg">Submit</button>
+									<button type="reset" class="btn btn-primary custom-bg">Reset</button>
+								</div>
+							</form>
+						</div>
+						<div class="card-footer text-center">
+							<a href="" class="text-decoration-none">Forget Password</a><br />
+							Don't have an account? <a th:href="@{/signin}" class="text-decoration-none">Create one</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section style="height: 545px;">
+		<div class="container-fluid p-5 mt-2">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="card">
+						<div class="card-header text-center fs-4 custom-bg text-white">
+							<p class="fs-4 mt-2">Add Category</p>
+
+							<th:block th:if="${session.succMsg}">
+								<p class="text-success fw-bold">[[${session.succMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+							</th:block>
+							<th:block th:if="${session.errMsg}">
+								<p class="text-danger fw-bold">[[${session.errMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+							</th:block>
+						</div>
+						<div class="card-body">
+							<form action="/admin/saveCategory" method="post" enctype="multipart/form-data">
+								<div class="mb-3">
+									<input type="text" class="form-control" name="name"
+										placeholder="Enter Product Category" required />
+								</div>
+								<div class="mb-3">
+									<label>Status</label>
+
+									<div class="form-check">
+										<input class="form-check-input" type="radio" checked value="true"
+											name="isActive" id="flexRadioDefault1">
+										<label class="form-check-label" for="flexRadioDefault1">
+											Active </label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="isActive" value="false"
+											id="flexRadioDefault2"> <label class="form-check-label"
+											for="flexRadioDefault2">
+											InActive </label>
+									</div>
+
+								</div>
+								<div class="mb-3">
+									<input type="file" class="form-control" name="file" placeholder="Upload Image"
+										required />
+								</div>
+								<div class="text-center">
+									<button class="btn btn-primary">Add Category</button>
+								</div>
+							</form>
+
+						</div>
+
+					</div>
+
+				</div>
+				<div class="col-md-8">
+					<div class="card">
+						<div class="card-header fs-4 text-center custom-bg text-white">
+							<p class="fs-4 mt-2">Category Details</p>
+						</div>
+						<div class="card-body">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th scope="col">Sr No.</th>
+										<th scope="col">Category</th>
+										<th scope="col">Status</th>
+										<th scope="col">Image</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="cat,c:${categories}">
+										<th scope="row">[[${c.count}]]</th>
+										<td>[[${cat.name}]]</td>
+										<td>[[${cat.isActive}]]</td>
+										<td><img th:src="@{'/img/category_img/'+${cat.imageName}}" width="80px"
+												height="40px" /></td>
+										<td>
+											<a th:href="@{'/admin/editCategory/'+ ${cat.id}}"
+												class="btn btn-primary btn-sm"><i
+													class="fa-solid fa-pen-to-square "></i>Edit</a>
+											<a th:href="@{'/admin/deleteCategory/'+ ${cat.id}}"
+												class="btn btn-danger btn-sm"><i class="fa-solid fa-trash "></i>
+												Delete</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+
+							<nav aria-label="Page navigation example">
+								<ul class="pagination">
+									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+									<li class="page-item"><a class="page-link" href="#">1</a></li>
+									<li class="page-item"><a class="page-link" href="#">Next</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

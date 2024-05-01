@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section style="height: 530px;">
+		<div class="container-fluid" >
+			<div class="row mt-4" >
+				<div class="col-md-12" >
+					<div class="card" >
+						<div class="card-header fs-4 text-center custom-bg text-white rounded">
+							<p class="fs-4 pt-2">Customer Details</p>
+							<th:block th:if="${session.succMsg}">
+								<p class="text-success fw-bold">[[${session.succMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+							</th:block>
+							<th:block th:if="${session.errMsg}">
+								<p class="text-danger fw-bold">[[${session.errMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+							</th:block>
+						</div>
+						<div class="card-body">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th scope="col">Image</th>
+										<th scope="col">Full Name</th>
+										<th scope="col">Email</th>
+										<th scope="col">Mobile No</th>
+										<th scope="col">Address</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="cus, c:${customers}">
+										<td scope="row"><img th:src="@{'/img/customer_img/'+${cus.image}}" width="80px"
+										height="40px" /></td>
+										<td>[[${cus.firstName}]]</td>
+										<td>[[${cus.email}]]</td>
+										<td>[[${cus.phoneNumber}]]</td>
+										<td>[[${cus.address}]]</td>
+										<td>
+											<a th:href="@{'/admin/deleteCustomer/'+ ${cus.id}}" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash "></i> Delete</a>
+										</td>
+									</tr>									
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
